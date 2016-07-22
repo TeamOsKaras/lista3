@@ -1,0 +1,445 @@
+
+#Lista 06
+
+def Questao01_Lista06(palavra):
+
+    palavra2 = ""
+    inverso = palavra[::-1]
+    for l in inverso:
+        if l!="a" and l!="e" and l!="i" and l!="o" and l!="u":
+            l = "#"
+            palavra2 += l
+
+        else:
+            palavra2 += l
+            
+    print palavra2
+            
+
+
+
+def Questao02_Lista06(frase):
+
+    frase = frase.split()
+
+    for i in frase:
+
+        print i
+
+
+def Questao03_Lista06(frase):
+
+    frase = frase.replace(" ", "")
+    print frase
+        
+
+
+
+def Questao04_Lista06(frase):
+
+    nova_frase = ""
+    for l in frase:
+        if l!="":
+            l *= 2
+            nova_frase += l
+            
+    print nova_frase
+
+
+
+def Questao05_Lista06(Dia, mes, ano):
+
+    if mes == 1:
+
+        mes_atual = "Janeiro"
+
+    elif mes == 2:
+
+        mes_atual = "Fevereiro"
+
+    elif mes == 3:
+
+        mes_atual = "Marco"
+
+    elif mes == 4:
+
+        mes_atual = "Abril"
+
+    elif mes == 5:
+
+        mes_atual = "Maio"
+
+    elif mes == 6:
+
+        mes_atual = "Junho"
+
+    elif mes == 7:
+
+        mes_atual = "Julho"
+
+    elif mes == 8:
+
+        mes_atual = "Agosto"
+
+    elif mes == 9:
+
+        mes_atual = "Setembro"
+
+    elif mes == 10:
+
+        mes_atual = "Outubro"
+
+    elif mes == 11:
+
+        mes_atual = "Novembro"
+
+    elif mes == 12:
+
+        mes_atual = "Dezembro"
+
+    print "%d de %s de %d." % (Dia, mes_atual, ano)
+
+
+
+def Questao07_Lista06(verbo):
+
+    palavra = ""
+    if verbo[-1] == "r" and verbo[-2] == "e":
+
+        palavra = verbo.replace("er","o")
+
+    print "A palavra %s no presente fica igual a %s. " % (verbo, palavra)
+
+
+
+
+
+    
+def Questao08_Lista06(horario):
+
+    horario = horario.split(":")
+    hora, minuto, segundo = horario[0], horario[1], horario[2]
+    
+    print "%s hora(s), %s minuto(s) e %s segundo(s)." % (hora, minuto, segundo)
+
+
+
+
+
+
+
+def Questao09_Lista06(senha):
+
+    senha_final = ""
+
+    for i in senha:
+
+        senha_final += "*"
+    print senha_final
+    
+    
+
+
+
+
+def Questao10_Lista06(palavra):
+
+    inverso = palavra[::-1]
+
+    if inverso == palavra:
+
+        print "%s e Palindroma." % palavra
+
+    else:
+
+        print "%s nao e Palindroma." % palavra
+
+
+
+def Questao11_Lista06(texto):
+
+    contador_de_palavras = 1
+    
+    for i in texto:
+
+        if i == " ":
+            
+            contador_de_palavras += 1
+
+    print "O total de palavras foi igual a %d." % contador_de_palavras
+        
+  
+    
+
+def Questao12_Lista06(Nome):
+
+    Nome = Nome.split()
+
+    for i in Nome:
+
+        nome = i
+        break
+
+    for i in Nome[::-1]:
+
+        sobrenome = i
+        break
+
+    print "%s/%s." % (sobrenome, nome)
+
+
+
+
+def Questao13_Lista06(Nome_Completo):
+
+    Nome_Completo = Nome_Completo.split()
+
+    for i in Nome_Completo[::-1]:
+
+        sobrenome = i
+        break
+
+    del Nome_Completo[-1]
+    print "%s," % sobrenome,
+    
+    for l in range(len(Nome_Completo)):
+        for u in Nome_Completo:
+            print "%s." % u[l],
+        break
+        
+
+
+
+def Questao14_Lista06(Nome_Completo):
+
+    login = ""
+
+    Nome_Completo = Nome_Completo.split()
+    
+    for l in range(len(Nome_Completo)):
+        for u in Nome_Completo:
+            login += u[l]
+        break
+    
+    print "Seu login por base em iniciais foi igual a %s." % login
+
+
+
+
+
+def Questao15_Lista06():
+
+    salto = input("Digite a coluna de inicio: ")
+    palavra = raw_input("Digite a palavra a ser utilizada: ")
+    vertical(salto, palavra)
+
+def vertical(coluna_de_partida, palavra):
+
+    if 0 <= len(palavra) <= 20:
+        salto = "\n" * coluna_de_partida
+        print salto
+        
+        for i in palavra:
+
+            print i
+
+    else:
+
+        print "Tamanho de palavra invalido."
+        while len(palavra) > 20:
+
+            palavra = raw_input("Digite uma palavra valida: ")
+        vertical(coluna_de_partida, palavra)
+
+
+
+
+
+
+
+
+
+def Questao16_Lista06():
+
+    salto = input("Digite a coluna de inicio: ")
+    palavra = raw_input("Digite a palavra a ser utilizada: ")
+    diagonal(salto, palavra)
+
+def diagonal(coluna_de_partida, palavra):
+
+    if 0 <= len(palavra) <= 20:
+        salto = " \n" * coluna_de_partida
+        print salto
+        
+    for i in palavra:
+
+        print i
+
+    else:
+
+        print "Tamanho de palavra invalido."
+        while len(palavra) > 20:
+
+            palavra = raw_input("Digite uma palavra valida: ")
+            break
+        diagonal(coluna_de_partida, palavra)
+
+
+
+    
+
+    
+
+#Questao 17 - Lista 06
+def substr(texto, posicao_de_partida, qtd_de_caracter_a_extrair):
+
+    posicao_real = posicao_de_partida -1
+    mensagem = ""
+    cont = 0
+    posicao_final = posicao_de_partida + qtd_de_caracter_a_extrair
+
+    for i in range(posicao_real, posicao_final - 1):
+
+        mensagem += texto[i]
+        cont += 1
+
+            
+
+        
+    print "Os %d termos da mensagem, partindo do %d caracter teve como mensagem final->'%s.'" % (qtd_de_caracter_a_extrair, posicao_de_partida, mensagem)
+
+
+
+
+
+def Questao19_Lista06(binario):
+
+    decimal = 0
+    cont = 0
+    binario_real = binario[::-1]
+
+    for l in binario_real:
+
+        if int(l) == 1:
+
+            decimal += 2 ** cont
+           
+        cont += 1
+         
+    print decimal
+
+
+
+
+
+
+def Questao20_Lista06(texto):
+
+    codificada = ""
+    
+    for l in texto:
+        if l!="a" and l!="e" and l!="i" and l!="o" and l!="u":
+
+            codificada += l
+            
+    print "O texto codificado ficou -> %s Mas em sua forma original -> %s" % (codificada, texto)
+
+    
+
+    
+
+
+#Questoes saltadas: 6, 15, 16, 18
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
